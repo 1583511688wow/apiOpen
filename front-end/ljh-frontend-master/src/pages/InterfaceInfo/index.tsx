@@ -251,7 +251,7 @@ const Index: React.FC = () => {
             <Input.TextArea />
           </Form.Item>
           <Form.Item wrapperCol={{ span: 16 }}>
-            <Button type="primary" >
+            <Button type="primary" htmlType="submit" >
               调用
             </Button>
 
