@@ -536,7 +536,7 @@ public class UserController {
             e.printStackTrace();
         }
 
-        System.out.println("cczcz");
+        System.out.println("success");
 
         return ResultUtils.success(true);
     }
