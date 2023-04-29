@@ -1,0 +1,93 @@
+server:
+  port: 8090
+spring:
+  application:
+    name: oop-gateway
+  cloud:
+    gateway:
+      default-filters:
+        - AddResponseHeader=source, ljh
+      routes:
+        - id: api_ljh_interface_route
+          uri: http://localhost:8083
+          predicates:
+            - Path=/api/**
+
+
+
+#        - id: api_ljh_backend_route
+#          uri: http://localhost:7529
+#          predicates:
+#            - Path=/api/**
+
+
+
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowedOrigins:
+              - "http://localhost:8090"
+            allowedMethods:
+              - GET
+              - POST
+              - HEAD
+              - PUT
+              - DELETE
+            allowedHeaders: '*'
+            allowCredentials: true
+        add-to-simple-url-handler-mapping: true
+
+
+
+    nacos:
+      discovery:
+        enabled: true
+        server-addr: localhost:8848
+        namespace: 9ed8f366-b196-496e-bc2f-4dfc082c7884
+
+
+
+    # sentinel控制台地址
+    sentinel:
+      transport:
+        port: 8719 # 默认8719端口，键入被占用会自动从8719+1，直到找到未被占用的端口
+        dashboard: localhost:9000  #表示Sentinel控制台的地址
+
+      eager: true #服务启动直接建立心跳连接
+
+      #配置限流之后的响应内容
+      scg:
+        fallback:
+          # 两种模式：一种是response返回文字提示信息，一种是redirect，重定向跳转，需要同时配置redirect(跳转的uri)
+          mode: response
+          # 响应的状态
+          response-status: 426
+          # 响应体
+          response-body: '{"code": 426,"message": "点击太快了，稍后重试！"}'
+
+      datasource:
+        dsl:
+          nacos:
+            namespace: 9ed8f366-b196-496e-bc2f-4dfc082c7884
+            server-addr: localhost:8848
+            data-type: json
+            rule-type: flow
+            group-id: GATEWAY_GROUP
+            data-id: oop-gateway-flow-rules
+
+logging:
+  level:
+    org:
+      springframework:
+        cloud:
+          gateway: trace
+dubbo:
+  application:
+    name: dubbo-springboot-ljh-consumer
+  protocol:
+    name: dubbo
+    port: -1
+  registry:
+    id: nacos-registry
+    address: nacos://localhost:8848
+
