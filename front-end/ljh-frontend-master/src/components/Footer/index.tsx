@@ -13,8 +13,8 @@ const Footer: React.FC = () => {
       links={[
         {
           key: 'WOW接口',
-          title: 'Lwow',
-          href: 'https://pro.ant.design',
+          title: '@gitee',
+          href: 'https://gitee.com/ljh12052497/api-open-platform',
           blankTarget: true,
         },
         {

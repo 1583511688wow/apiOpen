@@ -13,7 +13,7 @@ import {
   ProFormText,
 } from '@ant-design/pro-components';
 import { history, useModel } from '@umijs/max';
-import { Alert, message, Tabs } from 'antd';
+import {Alert, message, notification, Tabs} from 'antd';
 import React, { useState } from 'react';
 import styles from './index.less';
 import {
@@ -79,6 +79,8 @@ const Login: React.FC = () => {
     }
   };
   const { status, type: loginType } = userLoginState;
+
+
   return (
     <div className={styles.container}>
       <div className={styles.content}>
@@ -226,7 +228,9 @@ const Login: React.FC = () => {
             <a
               style={{
                 float: 'right',
+
               }}
+
 
             >
               忘记密码 ?
