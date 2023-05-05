@@ -12,6 +12,7 @@ import {
   getFollowUsingGET
 } from "@/services/ljh-backend/userController";
 import {getUserUsingGET} from "@/services/ljh-backend/keyController";
+import {Link} from "@@/exports";
 
 /**
  * 主页
@@ -146,7 +147,10 @@ const Index: React.FC = () => {
                   href= {apiLink}
 
                 >
-                可测试
+                <Link  to= {apiLink}>可测试</Link>
+
+
+
                 </Button> : null,
 
 

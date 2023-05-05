@@ -1,4 +1,4 @@
-package com.ljh.project.ljhgateway;
+package com.ljh.ljhgateway;
 
 
 import org.junit.jupiter.api.Test;
@@ -10,11 +10,5 @@ class LjhGatewayApplicationTests {
 
 
 
-
-    @Test
-    void contextLoads() {
-
-
-    }
 
 }

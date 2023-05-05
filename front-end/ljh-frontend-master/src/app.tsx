@@ -19,6 +19,9 @@ const home = '/';
  * */
 export async function getInitialState(): Promise<InitialState> {
   // 当页面首次加载时，获取要全局保存的数据，比如用户登录信息
+
+
+
   const state: InitialState = {
     loginUser: undefined,
   }

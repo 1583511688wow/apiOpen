@@ -95,6 +95,12 @@ export default defineConfig({
    */
   access: {},
   //================ pro 插件配置 =================
+
+
+
+  exportStatic: {},
+
+
   presets: ['umi-presets-pro'],
   /**
    * @name openAPI 插件的配置
@@ -111,4 +117,8 @@ export default defineConfig({
   mfsu: {
     exclude: ['@playwright/test'],
   },
+
+
+
+
 });

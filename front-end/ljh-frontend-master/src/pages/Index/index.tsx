@@ -7,6 +7,7 @@ import {
 } from '@/services/ljh-backend/interfaceInfoController';
 import {SmileOutlined} from "@ant-design/icons";
 import hljs from "highlight.js";
+import {Link} from "@@/exports";
 
 /**
  * 主页
@@ -87,7 +88,8 @@ const Index: React.FC = () => {
           return (
             <List.Item actions={[<a key={item.id} href={apiLink}>查看</a>]}>
               <List.Item.Meta
-                title={<a href={apiLink}>{item.name}</a>}
+                title={<Link  to= {apiLink}>{item.name}</Link>
+              }
                 description={item.description}
               />
             </List.Item>
